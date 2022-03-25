@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_empty_boilerplate_empty_boilerplate,empty_boilerplate.empty_boilerplate,model_empty_boilerplate_empty_boilerplate,base.group_user,1,1,1,1
+access_black_mesa_material,access.black.mesa.material,model_black_mesa_material,,1,1,1,1
+access_black_mesa_build,access.black.mesa.build,model_black_mesa_build,,1,1,1,1
+access_black_mesa_build_material_details,access.black.mesa.build.material.details,model_black_mesa_build_material_details,,1,1,1,1
+access_black_mesa_inventory,access.black.mesa.inventory,model_black_mesa_inventory,,1,1,1,1

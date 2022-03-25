@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- scientist -->
+
+    <!-- res.partner inherit form view -->
+    <record id="blak_mesa_staff_scientist_view_id" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Add your xpath here -->
+            <field name="vat" position="after">
+                <field name="role"/>
+                <field name="race"/>
+                <field name="reference"/>
+            </field>            
+        </field>
+    </record>
+
+    <!-- res.partner inherit tree view -->
+    <record id="black_mesa_staff_scientist_tree_inherit" model="ir.ui.view">
+       <field name="name">res.partner.inherit.view.tree</field>
+       <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <tree position="replace">
+                <tree>
+                    <field name="name"/>
+                    <field name="role"/>
+                    <field name="race"/>
+                    <field name="reference"/>
+                </tree>
+            </tree>
+        </field>
+    </record>
+
+    <!-- model.name inherit search view -->
+    <record id="black_mesa_staff_scientist_inherit_search" model="ir.ui.view">
+      <field name="name">res.partner.inherit.view.search</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_res_partner_filter"/>
+      <field name="arch" type="xml">       
+      <field name="parent_id" position="after">
+        <filter string="Scientist" name="scientist" domain="[('role', '=', 'scientist')]"/>
+       </field>        
+      </field>      
+    </record>
+
+    <!-- res.partner action window -->
+    <record id="black_mesa_staff_scientist_action" model="ir.actions.act_window">
+        <field name="name">res.partner.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="context">
+            {
+                'search_default_scientist': 1,
+                'default_role': 'scientist',
+            }
+        </field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="staff_scientist_views_menu"
+        name="Scientist"
+        action="black_mesa_staff_scientist_action"
+        parent="black_mesa_staff_menu_categ"
+        sequence="10"/>
+
+</odoo>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "empty_boilerplate",
+    'name': "black_mesa",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -18,15 +18,26 @@
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
+    'application':True,
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/menu.xml',
+        'views/material_views.xml',
+        'views/staff_scientist_views.xml',
+        'views/build_views.xml',
+        'views/staff_security_views.xml',
+        'views/staff_engineer_views.xml',
+        'views/workspace_views.xml',
+        'views/inventory_views.xml',
+        'report/report.xml',
+        'report/inventory.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

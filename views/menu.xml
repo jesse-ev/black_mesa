@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem 
+        id="black_mesa_menu_root" 
+        name="Black Mesa" 
+        sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem 
+        id="black_mesa_material_menu_categ" 
+        name="Material" 
+        parent="black_mesa_menu_root" 
+        sequence="10"/>
+    
+    <menuitem
+        id="black_mesa_staff_menu_categ"
+        name="Staff"
+        parent="black_mesa_menu_root"
+        sequence="20"/>
+
+    <menuitem
+        id="black_mesa_build_menu_categ"
+        name="Build"
+        parent="black_mesa_menu_root"
+        sequence="30"/>
+
+    <menuitem
+        id="black_mesa_inventory_menu_categ"
+        name="Inventory"
+        parent="black_mesa_menu_root"
+        sequence="40"/>
+
+</odoo>

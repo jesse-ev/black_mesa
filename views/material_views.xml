@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- black.mesa.material form view -->
+    <record id="black_mesa_material_view_form" model="ir.ui.view">
+        <field name="name">black.mesa.material.view.form</field>
+        <field name="model">black.mesa.material</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="qty"/>
+                        <field name="description"/>
+                        <field name="source"/>
+                        <field name="image"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- black.mesa.material tree view -->
+    <record id="black_mesa_material_view_tree" model="ir.ui.view">
+        <field name="name">black.mesa.material.view.tree</field>
+        <field name="model">black.mesa.material</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="qty"/>
+                <field name="description"/>
+                <field name="source"/>
+                <field name="image"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- black.mesa.material action window -->
+    <record id="black_mesa_material_action" model="ir.actions.act_window">
+        <field name="name">black.mesa.material.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">black.mesa.material</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="material_views_menu"
+        name="Material"
+        action="black_mesa_material_action"
+        parent="black_mesa_material_menu_categ"
+        sequence="10"/>
+</odoo>

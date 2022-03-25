@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+
+    <!-- black.mesa.build form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">black.mesa.build.view.form</field>
+        <field name="model">black.mesa.build</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="type"/>
+                        <field name="qty"/>
+                        <field name="description"/>
+                        <field name="material_ids">
+                            <tree editable="bottom">
+                                <field name="material_id"/>
+                                <field name="qty"/>
+                            </tree>
+                        </field>
+                        <field name="scientist_id"/>
+                        <field name="security_id"/>
+                        <field name="engineer_id"/>
+                        <field name="state"/>
+                        <field name="image"/>
+                    </group>
+                </sheet>
+                <sheet name="Actions" attrs="{'invisible' : [('state', '=', 'manufacture')]}">
+                    <button name="create_inv" type="object" string="Start Production" class="oe-primary" attrs="{'invisible' : [('state', '!=', 'queue')]}"/>
+                    <button name="cancel" type="object" string="Cancel Production" class="oe-primary" attrs="{'invisible' : [('state', '!=', 'queue')]}"/>
+                    <h2 attrs="{'invisible' : [('state', '!=', 'canceled')]}">To restore the material quantity, please delete the record</h2>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- black.mesa.build tree view -->
+    <record id="black_mesa_build_view_tree" model="ir.ui.view">
+        <field name="name">black.mesa.build.view.tree</field>
+        <field name="model">black.mesa.build</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="qty"/>
+                <!-- <field name="description"/>
+                <field name="material_ids"/>
+                <field name="scientist_id"/>
+                <field name="security_id"/>
+                <field name="engineer_id"/>
+                <field name="image"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- black.mesa.build action window -->
+    <record id="black_mesa_build_action" model="ir.actions.act_window">
+        <field name="name">black.mesa.build.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">black.mesa.build</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="build_views_menu"
+        name="Build"
+        action="black_mesa_build_action"
+        parent="black_mesa_build_menu_categ"
+        sequence="10"/>
+
+</odoo>

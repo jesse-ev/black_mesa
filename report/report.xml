@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="record_black_mesa_inventory" model="ir.actions.report">
+        <field name="name">Inventory Report</field>
+        <field name="model">black.mesa.inventory</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">black_mesa.inventory</field>
+        <field name="report_file">black_mesa.inventory</field>
+        <field name="binding_model_id" ref="model_black_mesa_inventory"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

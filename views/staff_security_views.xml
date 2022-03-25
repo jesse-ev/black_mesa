@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- security -->
+
+    <!-- res.partner inherit form view
+    <record id="blak_mesa_staff_security_view_id" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="role"/>
+                <field name="race"/>
+                <field name="reference"/>
+            </field>            
+        </field>
+    </record> -->
+
+    <!-- res.partner inherit tree view -->
+    <record id="black_mesa_staff_security_tree_inherit" model="ir.ui.view">
+       <field name="name">res.partner.inherit.view.tree</field>
+       <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <tree position="replace">
+                <tree>
+                    <field name="name"/>
+                    <field name="role"/>
+                    <field name="race"/>
+                    <field name="reference"/>
+                </tree>
+            </tree>
+        </field>
+    </record>
+
+    <!-- model.name inherit search view -->
+    <record id="black_mesa_staff_security_inherit_search" model="ir.ui.view">
+      <field name="name">res.partner.inherit.view.search</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_res_partner_filter"/>
+      <field name="arch" type="xml">       
+      <field name="parent_id" position="after">
+        <filter string="Security" name="security" domain="[('role', '=', 'security')]"/>
+       </field>        
+      </field>      
+    </record>
+
+    <!-- res.partner action window -->
+    <record id="black_mesa_staff_security_action" model="ir.actions.act_window">
+        <field name="name">res.partner.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="context">
+            {
+                'search_default_security': 1,
+                'default_role': 'security',
+            }
+        </field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="staff_security_views_menu"
+        name="Security"
+        action="black_mesa_staff_security_action"
+        parent="black_mesa_staff_menu_categ"
+        sequence="20"/>
+
+</odoo>

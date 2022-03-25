@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="inventory" name="Black Mesa Inventory Report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1>Inventory Report</h1>
+                        <br/>
+                        <div class="row">
+                            <div class="col-4">
+                                <h2>Name</h2>
+                            </div>
+                            <div class="col-8">
+                                <h2>: <span t-field="doc.name"/></h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <h2>Quantity</h2>
+                            </div>
+                            <div class="col-8">
+                                <h2>: <span t-field="doc.qty"/></h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <h2>Date Produced</h2>
+                            </div>
+                            <div class="col-8">
+                                <h2>: <span t-field="doc.date_created"/></h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <h2>Description</h2>
+                            </div>
+                            <div class="col-8">
+                                <h2>: <span t-field="doc.description"/></h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <img t-attf-src="data:image/*;base64,{{doc.image}}" style="height: 512px; padding:2px;"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
+  
