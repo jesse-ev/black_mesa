@@ -48,7 +48,7 @@
 
     <!-- res.partner action window -->
     <record id="black_mesa_staff_scientist_action" model="ir.actions.act_window">
-        <field name="name">res.partner.action</field>
+        <field name="name">Scientist</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
         <field name="context">

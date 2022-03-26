@@ -3,7 +3,7 @@
 
     <!-- black.mesa.inventory form view -->
     <record id="black_mesa_inventory_view_form" model="ir.ui.view">
-        <field name="name">black.mesa.inventory.view.form</field>
+        <field name="name">Inventory</field>
         <field name="model">black.mesa.inventory</field>
         <field name="arch" type="xml">
             <form string="">
@@ -22,7 +22,7 @@
 
     <!-- black.mesa.inventory tree view -->
     <record id="black_mesa_inventory_view_tree" model="ir.ui.view">
-        <field name="name">black.mesa.inventory.view.tree</field>
+        <field name="name">Inventory</field>
         <field name="model">black.mesa.inventory</field>
         <field name="arch" type="xml">
             <tree>
@@ -37,7 +37,7 @@
 
     <!-- black.mesa.inventory action window -->
     <record id="black_mesa_inventory_action" model="ir.actions.act_window">
-        <field name="name">black.mesa.inventory.action</field>
+        <field name="name">Material</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">black.mesa.inventory</field>
         <field name="view_mode">tree,form</field>

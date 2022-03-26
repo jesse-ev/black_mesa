@@ -3,7 +3,7 @@
 
     <!-- black.mesa.material form view -->
     <record id="black_mesa_material_view_form" model="ir.ui.view">
-        <field name="name">black.mesa.material.view.form</field>
+        <field name="name">Material</field>
         <field name="model">black.mesa.material</field>
         <field name="arch" type="xml">
             <form string="">
@@ -22,7 +22,7 @@
 
     <!-- black.mesa.material tree view -->
     <record id="black_mesa_material_view_tree" model="ir.ui.view">
-        <field name="name">black.mesa.material.view.tree</field>
+        <field name="name">Material</field>
         <field name="model">black.mesa.material</field>
         <field name="arch" type="xml">
             <tree>
@@ -37,7 +37,7 @@
 
     <!-- black.mesa.material action window -->
     <record id="black_mesa_material_action" model="ir.actions.act_window">
-        <field name="name">black.mesa.material.action</field>
+        <field name="name">Material</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">black.mesa.material</field>
         <field name="view_mode">tree,form</field>

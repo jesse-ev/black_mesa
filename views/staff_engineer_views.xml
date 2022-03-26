@@ -18,7 +18,7 @@
 
     <!-- res.partner inherit tree view -->
     <record id="black_mesa_staff_engineer_tree_inherit" model="ir.ui.view">
-       <field name="name">res.partner.inherit.view.tree</field>
+       <field name="name">Engineer</field>
        <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_tree"/>
         <field name="arch" type="xml">
@@ -47,7 +47,7 @@
 
     <!-- res.partner action window -->
     <record id="black_mesa_staff_engineer_action" model="ir.actions.act_window">
-        <field name="name">res.partner.action</field>
+        <field name="name">Engineer</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
         <field name="context">
