@@ -1,5 +1,7 @@
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
+import string
+import random
 
 
 class Build(models.Model):
@@ -56,7 +58,7 @@ class Build(models.Model):
         required=True,
     )
 
-    image = fields.Binary(string='Image')
+    image = fields.Binary(string='Image', default=False)
 
     state = fields.Selection(
         string='State',
@@ -100,11 +102,47 @@ class Build(models.Model):
             'date_created': fields.Datetime.now(),
             'image': self.image,
         })
-        return new_inv
+
+        product = self.env['product.template'].create({
+            'name': self.name,
+            'sale_ok': True,
+            'purchase_ok': True,
+            'type': 'consu',
+            'categ_id': 1, #1 means All category 
+            'list_price': 0,
+            'description_sale': self.description,
+            'description_purchase': self.description,
+            'description': self.description,
+            'image_1920': self.image,
+            'default_code': "BM_PROD_" + str(self.name),
+            'barcode': "BM_PROD_" + str(self.name) + "_" + str(''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(5))),
+        })
+
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Build successful!',
+                'type': 'rainbow_man',
+            }
+        }
+
+    def button_see_inventory(self):
+        return {
+            'res_model' : 'black.mesa.inventory',
+            'type' : 'ir.actions.act_window',
+            'view_mode' : 'form',
+            'view_type' : 'form',
+            'res_id' : self.env['black.mesa.inventory'].search([('name', '=', self.name)]).id,
+            'target' : 'self',
+        }
     
     def cancel(self):
         self.state = 'canceled'
         return True
+
+    _sql_constraints = [
+        ('name_uniq', 'unique(name)', 'Build name must be unique!'),
+    ]
 
 
 class BuildMaterialDetails(models.Model):

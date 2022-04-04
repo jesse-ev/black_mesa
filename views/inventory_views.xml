@@ -6,7 +6,7 @@
         <field name="name">Inventory</field>
         <field name="model">black.mesa.inventory</field>
         <field name="arch" type="xml">
-            <form string="">
+            <form string="" create="false">
                 <sheet>
                     <group>
                         <field name="name"/>
@@ -15,6 +15,11 @@
                         <field name="date_created"/>
                         <field name="image" widget="image" class="oe_avatar"/>
                     </group>
+                </sheet>
+                <sheet name="Actions">
+                    <h2>Actions</h2>
+                    <button name="button_see_product" type="object" string="See in products (Sales)" class="oe-primary"/>
+                    <button name="button_create_invoice" type="object" string="Create invoice (Accounting))" class="oe-primary"/>
                 </sheet>
             </form>
         </field>
@@ -25,7 +30,7 @@
         <field name="name">Inventory</field>
         <field name="model">black.mesa.inventory</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree create="false">
                 <field name="name"/>
                 <field name="qty"/>
                 <field name="description"/>

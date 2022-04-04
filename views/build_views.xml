@@ -28,8 +28,10 @@
                     </group>
                 </sheet>
                 <sheet name="Actions" attrs="{'invisible' : [('state', '=', 'manufacture')]}">
+                    <h2>Actions</h2>
                     <button name="create_inv" type="object" string="Start Production" class="oe-primary" attrs="{'invisible' : [('state', '!=', 'queue')]}"/>
                     <button name="cancel" type="object" string="Cancel Production" class="oe-primary" attrs="{'invisible' : [('state', '!=', 'queue')]}"/>
+                    <button name="button_see_inventory" type="object" string="See in inventory" class="oe-primary" attrs="{'invisible' : [('state', '!=', 'finished')]}"/>
                     <h2 attrs="{'invisible' : [('state', '!=', 'canceled')]}">To restore the material quantity, please delete the record</h2>
                 </sheet>
             </form>
